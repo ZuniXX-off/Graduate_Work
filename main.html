@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="ru-RU">
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Туристический маршрутизатор</title>
+
+    <script src="https://api-maps.yandex.ru/2.1/?load=package.standard&amp;lang=ru-RU&amp;apikey=e558c507-7902-4efc-968b-b07f592552f7" type="text/javascript"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+
+    <script src="main.js" type="text/javascript"></script>
+    <script src="model.js" type="text/javascript"></script>
+    <script src="view.js" type="text/javascript"></script>
+    <script src="controller.js" type="text/javascript"></script>
+</head>
+
+<body style="overflow: hidden">
+    <div id="page_header">
+        <div id="header_buttons" class="top-container">
+            <div id="dropdown_authorize" class="dropdown">
+                <button id="reg-log" title="Профиль" style="margin: 0 20px 0 0">
+                    <img src="img/UI/profile.png" alt="Вход">
+                </button>
+                <div id="authorize-panel" class="bubble" hidden>
+                    <h3 id="panel-main-text" style="margin: 10px 0">Вход</h3>
+                    <label for="login">Логин</label>
+                    <input type="text" id="login" class="enter-field">
+                    <label for="email" id="label-email" hidden>Почта</label>
+                    <input type="email" id="email" class="enter-field" hidden>
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" class="enter-field">
+                    <label id="label-again-password" for="again-password" hidden>Повторите пароль</label>
+                    <input type="password" id="again-password" class="enter-field" hidden>
+                    <span id="error-text" style="color: red"></span><br/>
+                    <span id="question-text">Нет аккаунта?</span><br/>
+                    <a id="reg-log-switch" href='#'>Зарегистироваться</a><br/>
+                    <button id="enter-button" class="button-panel">Войти</button>
+                </div>
+            </div>
+            <div id="dropdown_profile" class="dropdown" hidden>
+                <button id="profile" title="Профиль" style="margin: 0 20px 0 0">
+                    <img src="img/UI/profile.png" alt="Вход">
+                </button>
+                <div id="profile-panel" class="bubble profile" hidden>
+                    <h3 id="user-login" style="margin: 10px 0"></h3>
+                    <a id="to-map-routes" href="#" class="button-panel">Мои маршруты</a><br/>
+                    <button id="quit-button" class="profile-button-panel">Выйти</button>
+                </div>
+            </div>
+        </div>
+        <hr style="height: 10px; margin: 35px 0 0 0; background-color: grey"/>
+    </div>
+    <div id="main-page" class="main-container">
+        <div id="map" class="map-size"></div>
+        <hr style="margin: 0 15px; width: 10px; background-color: grey"/>
+        <div id="right-part" class="right-part">
+            <h2>Ваш Маршрут</h2>
+            <h3 id="route-name"></h3>
+            <div id="check-box-visible">
+                <input type="checkbox" id="route-visible" style="margin: 0 0 10px 0">
+                <label for="route-visible">Скрыть маршрут с карты</label>
+            </div>
+            <div id="empty-table">Здесь пока ничего нет</div>
+            <div id="table" style="overflow-y: auto; max-height: 750px"></div>
+            <div id="options-line" class="right-container">
+                <div id="fix-first-checkbox">
+                    <input type="checkbox" id="fix-first" class="route-options">
+                    <label for="fix-first">Зафиксировать первую точку</label>
+                </div>
+                <div id="fix-last-checkbox">
+                    <input type="checkbox" id="fix-last" class="route-options">
+                    <label for="fix-last">Зафиксировать последнюю точку</label>
+                </div>
+                <div id="optimize-route-button" hidden class="route-options">
+                    <button id="optimize-route">Оптимизировать маршрут</button>
+                </div>
+                <div id="delete-route-button" hidden class="route-options">
+                    <button id="delete-route">Очистить маршрут</button>
+                </div>
+            </div>
+            <div id="save-route-button" hidden>
+                <label id="route-name-label" for="route-name-field" hidden>Имя маршрута</label>
+                <input type="text" id="route-name-field" hidden class="route-options">
+                <button id="save-route" disabled class="route-options" title="Сохранить можно не менее 2 точек">Сохранить маршрут</button>
+            </div>
+        </div>
+    </div>
+    <div id="my-routes" style="text-align: center" hidden>
+        <h2>Ваши Маршруты</h2>
+        <div id="empty-routes">Здесь пока ничего нет</div>
+        <div id="routes"></div>
+        <div id="back-to-map-button">
+            <button id="back-to-map" class="route-options">Назад</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+{
+  "name" : "mvc",
+  "dependencies": {
+    "@types/yandex-maps": "2.1.29"
+  },
+  "type": "module"
+}

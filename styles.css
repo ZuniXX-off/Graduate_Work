@@ -1,0 +1,63 @@
+.main-container {
+    display: flex;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.top-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dropdown {
+    position: absolute;
+}
+
+.map-size {
+    width: 90vh;
+    height: 93vh;
+}
+
+.bubble {
+    position: absolute;
+    z-index: 2;
+    top: calc(100% + 0.5rem);
+    box-shadow: 0 0.25rem 0.5rem 0.125rem;
+    right: calc(100% - 2rem);
+    text-align: center;
+    background-color: white;
+}
+
+.enter-field {
+    margin: 10px 1em 10px;
+}
+
+.button-panel {
+    margin: 10px 0 10px;
+}
+
+.profile-button-panel {
+    margin: 10px 10px;
+}
+
+.right-part, .my-routes {
+    width: 100vh;
+    text-align: center;
+}
+
+.profile {
+    width: 100px;
+
+}
+
+.route-options {
+    margin: 10px 5px 0 5px;
+}
+
+td {
+    word-wrap:break-word;
+}
